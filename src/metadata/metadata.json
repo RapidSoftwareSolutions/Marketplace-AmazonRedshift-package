@@ -75,7 +75,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "authorizeSnapshotAccess",
       "description": "Authorizes the specified AWS customer account to restore the specified snapshot.",
       "args": [
@@ -126,7 +127,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "copyClusterSnapshot",
       "description": "Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.",
       "args": [
@@ -177,7 +179,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createCluster",
       "description": "Creates a new cluster.",
       "args": [
@@ -372,7 +375,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createClusterParameterGroup",
       "description": "Creates an Amazon Redshift parameter group.",
       "args": [
@@ -429,7 +433,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createClusterSecurityGroup",
       "description": "Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.",
       "args": [
@@ -480,7 +485,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createClusterSnapshot",
       "description": "Creates a manual snapshot of the specified cluster. The cluster must be in the available state.",
       "args": [
@@ -531,7 +537,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createClusterSubnetGroup",
       "description": "Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.",
       "args": [
@@ -588,7 +595,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createEventSubscription",
       "description": "Creates an Amazon Redshift event notification subscription",
       "args": [
@@ -669,7 +677,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createHsmClientCertificate",
       "description": "Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.",
       "args": [
@@ -714,7 +723,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createHsmConfiguration",
       "description": "Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.",
       "args": [
@@ -789,7 +799,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createSnapshotCopyGrant",
       "description": "Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.",
       "args": [
@@ -840,7 +851,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "createTags",
       "description": "Adds one or more tags to a specified resource.",
       "args": [
@@ -885,7 +897,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterParameterGroups",
       "description": "Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group.",
       "args": [
@@ -948,7 +961,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterParameters",
       "description": "Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group.",
       "args": [
@@ -1005,7 +1019,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusters",
       "description": "Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties.",
       "args": [
@@ -1068,7 +1083,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterSecurityGroups",
       "description": "Returns information about Amazon Redshift security groups.",
       "args": [
@@ -1131,7 +1147,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterSnapshots",
       "description": "Returns one or more snapshot objects, which contain metadata about your cluster snapshots.",
       "args": [
@@ -1224,7 +1241,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterSubnetGroups",
       "description": "Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups.",
       "args": [
@@ -1287,7 +1305,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeClusterVersions",
       "description": "Returns descriptions of the available Amazon Redshift cluster versions.",
       "args": [
@@ -1344,7 +1363,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeDefaultClusterParameters",
       "description": "Returns a list of parameter settings for the specified parameter group family.",
       "args": [
@@ -1395,7 +1415,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeEventCategories",
       "description": "Displays a list of event categories for all event source types, or for a specified source type.",
       "args": [
@@ -1434,7 +1455,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeEvents",
       "description": "Returns events related to clusters, security groups, snapshots, and parameter groups for the past 14 days.",
       "args": [
@@ -1509,7 +1531,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeEventSubscriptions",
       "description": "Lists descriptions of all the Amazon Redshift event notifications subscription for a customer account.",
       "args": [
@@ -1560,7 +1583,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeHsmClientCertificates",
       "description": "Returns information about the specified HSM client certificate. If no certificate ID is specified, returns information about all the HSM certificates owned by your AWS customer account.",
       "args": [
@@ -1611,7 +1635,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeHsmConfigurations",
       "description": "Returns information about the specified Amazon Redshift HSM configuration. If no configuration ID is specified, returns information about all the HSM configurations owned by your AWS customer account.",
       "args": [
@@ -1674,7 +1699,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeLoggingStatus",
       "description": "Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.",
       "args": [
@@ -1713,7 +1739,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeOrderableClusterOptions",
       "description": "Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific AWS region that you can specify, and the node types you can request. ",
       "args": [
@@ -1770,7 +1797,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeReservedNodeOfferings",
       "description": "Returns a list of the available reserved node offerings by Amazon Redshift with their descriptions including the node type, the fixed and recurring costs of reserving the node and duration the node will be reserved for you.",
       "args": [
@@ -1821,7 +1849,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeReservedNodes",
       "description": "Returns the descriptions of the reserved nodes.",
       "args": [
@@ -1872,7 +1901,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeResize",
       "description": "Returns information about the last resize operation for the specified cluster.",
       "args": [
@@ -1911,7 +1941,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeSnapshotCopyGrants",
       "description": "Returns a list of snapshot copy grants owned by the AWS account in the destination region.",
       "args": [
@@ -1974,7 +2005,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeTableRestoreStatus",
       "description": "Lists the status of one or more table restore requests made using the RestoreTableFromClusterSnapshot API action.",
       "args": [
@@ -2031,7 +2063,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "describeTags",
       "description": "Returns a list of tags. You can return tags from a specific resource by specifying an ARN, or you can return all tags for a given type of resource, such as clusters, snapshots, and so on.",
       "args": [
@@ -2100,7 +2133,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "disableLogging",
       "description": "Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.",
       "args": [
@@ -2139,7 +2173,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "disableSnapshotCopy",
       "description": "Disables the automatic copying of snapshots from one region to another region for a specified cluster.",
       "args": [
@@ -2178,7 +2213,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "enableLogging",
       "description": "Starts logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.",
       "args": [
@@ -2229,7 +2265,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "enableSnapshotCopy",
       "description": "Enables the automatic copy of snapshots from one region to another region for a specified cluster.",
       "args": [
@@ -2286,7 +2323,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifyCluster",
       "description": "Modifies the settings for a cluster.",
       "args": [
@@ -2427,7 +2465,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifyClusterIamRoles",
       "description": "Modifies the list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.",
       "args": [
@@ -2478,7 +2517,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifyClusterParameterGroup",
       "description": "Modifies the parameters of a parameter group.",
       "args": [
@@ -2509,7 +2549,7 @@
         {
           "name": "parameters",
           "type": "JSON",
-          "info": "Array of strings. An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. See README for more details.",
+          "info": "Array of objects. An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. See README for more details.",
           "required": true
         }
       ],
@@ -2523,7 +2563,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifyClusterSubnetGroup",
       "description": "Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.",
       "args": [
@@ -2574,7 +2615,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifyEventSubscription",
       "description": "Modifies an existing Amazon Redshift event notification subscription.",
       "args": [
@@ -2649,7 +2691,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "modifySnapshotCopyRetentionPeriod",
       "description": "Modifies the number of days to retain automated snapshots in the destination region after they are copied from the source region.",
       "args": [
@@ -2694,7 +2737,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "purchaseReservedNodeOffering",
       "description": "Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the DescribeReservedNodeOfferings API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.",
       "args": [
@@ -2739,7 +2783,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "rebootCluster",
       "description": "Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to rebooting. A cluster event is created when the reboot is completed. Any pending cluster modifications (see ModifyCluster) are applied at this reboot.",
       "args": [
@@ -2778,7 +2823,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "resetClusterParameterGroup",
       "description": "Sets one or more parameters of the specified parameter group to their default values and sets the source values of the parameters to \"engine-default\". To reset the entire parameter group specify the ResetAllParameters parameter.",
       "args": [
@@ -2829,7 +2875,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "restoreFromClusterSnapshot",
       "description": "Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups.",
       "args": [
@@ -2994,7 +3041,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "restoreTableFromClusterSnapshot",
       "description": "Creates a new table from a table in an Amazon Redshift cluster snapshot. You must create the new table within the Amazon Redshift cluster that the snapshot was taken from.",
       "args": [
@@ -3075,7 +3123,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "revokeClusterSecurityGroupIngress",
       "description": "Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group.",
       "args": [
@@ -3132,7 +3181,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "revokeSnapshotAccess",
       "description": "Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.",
       "args": [
@@ -3183,7 +3233,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "rotateEncryptionKey",
       "description": "Rotates the encryption keys for a cluster.",
       "args": [
@@ -3222,7 +3273,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteTags",
       "description": "Deletes a tag or tags from a resource. You must provide the ARN of the resource from which you want to delete the tag or tags.",
       "args": [
@@ -3267,7 +3319,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteSnapshotCopyGrant",
       "description": "Deletes the specified snapshot copy grant.",
       "args": [
@@ -3306,7 +3359,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteHsmConfiguration",
       "description": "Deletes the specified snapshot copy grant.",
       "args": [
@@ -3345,7 +3399,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteHsmClientCertificate",
       "description": "Deletes the specified HSM client certificate.",
       "args": [
@@ -3384,7 +3439,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteEventSubscription",
       "description": "Deletes an Amazon Redshift event notification subscription.",
       "args": [
@@ -3423,7 +3479,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteClusterSubnetGroup",
       "description": "Deletes the specified cluster subnet group.",
       "args": [
@@ -3462,7 +3519,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteClusterSnapshot",
       "description": "Deletes the specified cluster subnet group.",
       "args": [
@@ -3507,7 +3565,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteClusterSecurityGroup",
       "description": "Deletes an Amazon Redshift security group.",
       "args": [
@@ -3546,7 +3605,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteClusterParameterGroup",
       "description": "Deletes a specified Amazon Redshift parameter group.",
       "args": [
@@ -3585,7 +3645,8 @@
           "info": "Success"
         }
       ]
-    }, {
+    },
+    {
       "name": "deleteCluster",
       "description": "Deletes a previously provisioned cluster. A successful response from the web service indicates that the request was received correctly.",
       "args": [
