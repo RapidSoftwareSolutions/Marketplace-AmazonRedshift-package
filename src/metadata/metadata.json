@@ -43,7 +43,6 @@
         {
           "name": "clusterSecurityGroupName",
           "type": "String",
-          "test": "clusterSecurityGroup",
           "info": "The name of the security group to which the ingress rule is added.",
           "required": true
         },
@@ -203,28 +202,24 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.",
           "required": true
         },
         {
           "name": "masterUsername",
           "type": "String",
-          "test": "rapidapi",
           "info": "The user name associated with the master user account for the cluster that is being created.",
           "required": true
         },
         {
           "name": "masterUserPassword",
           "type": "String",
-          "test": "Azpt48$1",
           "info": "The password associated with the master user account for the cluster that is being created.",
           "required": true
         },
         {
           "name": "nodeType",
           "type": "String",
-          "test": "ds1.xlarge",
           "info": "The node type to be provisioned for the cluster. For information about node types, go to Working with Clusters in the Amazon Redshift Cluster Management Guide. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.",
           "required": true
         },
@@ -297,7 +292,6 @@
         {
           "name": "encrypted",
           "type": "String",
-          "test": "true",
           "info": "If true, the data in the cluster is encrypted at rest. Default: false.",
           "required": false
         },
@@ -334,7 +328,6 @@
         {
           "name": "numberOfNodes",
           "type": "String",
-          "test": "2",
           "info": "The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default 1",
           "required": false
         },
@@ -404,21 +397,18 @@
         {
           "name": "description",
           "type": "String",
-          "test": "test description",
           "info": "A description of the parameter group.",
           "required": true
         },
         {
           "name": "parameterGroupFamily",
           "type": "String",
-          "test": "redshift-1.0",
           "info": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.",
           "required": true
         },
         {
           "name": "parameterGroupName",
           "type": "String",
-          "test": "groupName",
           "info": "The name of the cluster parameter group.",
           "required": true
         },
@@ -464,14 +454,12 @@
         {
           "name": "description",
           "type": "String",
-          "test": "test description",
           "info": "A description of the parameter group.",
           "required": true
         },
         {
           "name": "clusterSecurityGroupName",
           "type": "String",
-          "test": "securitygroup_name",
           "info": "The name for the security group. Amazon Redshift stores the value as a lowercase string.",
           "required": true
         },
@@ -517,14 +505,12 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The cluster identifier for which you want a snapshot.",
           "required": true
         },
         {
           "name": "snapshotIdentifier",
           "type": "String",
-          "test": "snapshot1",
           "info": "A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.",
           "required": true
         },
@@ -570,21 +556,18 @@
         {
           "name": "clusterSubnetGroupName",
           "type": "String",
-          "test": "subnetgroup",
           "info": "The name for the subnet group. Amazon Redshift stores the value as a lowercase string.",
           "required": true
         },
         {
           "name": "description",
           "type": "String",
-          "test": "test description",
           "info": "A description for the subnet group.",
           "required": true
         },
         {
           "name": "subnetIds",
           "type": "JSON",
-          "test": "[\"subnet-162ab84e\"]",
           "info": "An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.",
           "required": true
         },
@@ -711,7 +694,6 @@
         {
           "name": "hsmClientCertificateIdentifier",
           "type": "String",
-          "test": "mycert",
           "info": "The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.",
           "required": true
         },
@@ -757,35 +739,30 @@
         {
           "name": "description",
           "type": "String",
-          "test": "test description",
           "info": "A text description of the HSM configuration to be created.",
           "required": true
         },
         {
           "name": "hsmConfigurationIdentifier",
           "type": "String",
-          "test": "hsmconfig",
           "info": "The identifier to be assigned to the new Amazon Redshift HSM configuration.",
           "required": true
         },
         {
           "name": "hsmIpAddress",
           "type": "String",
-          "test": "10.0.0.1",
           "info": "The IP address that the Amazon Redshift cluster must use to access the HSM.",
           "required": true
         },
         {
           "name": "hsmPartitionName",
           "type": "String",
-          "test": "hsmpartname",
           "info": "The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.",
           "required": true
         },
         {
           "name": "hsmPartitionPassword",
           "type": "String",
-          "test": "Azpt48$1",
           "info": "The password required to access the HSM partition.",
           "required": true
         },
@@ -837,7 +814,6 @@
         {
           "name": "snapshotCopyGrantName",
           "type": "String",
-          "test": "snapshotCopy",
           "info": "The name of the snapshot copy grant. This name must be unique in the region for the AWS account.",
           "required": true
         },
@@ -889,14 +865,12 @@
         {
           "name": "resourceName",
           "type": "String",
-          "test": "arn:aws:redshift:eu-west-1:828310069595:cluster:testcluster",
           "info": "The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.",
           "required": true
         },
         {
           "name": "tags",
           "type": "JSON",
-          "test": "[{\"Key\": \"tag1\", \"Value\": \"value1\"}]",
           "info": "One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter Key and the corresponding value is passed in with the parameter Value.. See README for more details.",
           "required": true
         }
@@ -999,7 +973,6 @@
         {
           "name": "parameterGroupName",
           "type": "String",
-          "test": "groupname",
           "info": "The name of a cluster parameter group for which to return details.",
           "required": true
         },
@@ -1183,7 +1156,6 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The identifier of the cluster for which information about snapshots is requested.",
           "required": false
         },
@@ -1397,7 +1369,6 @@
         {
           "name": "parameterGroupFamily",
           "type": "String",
-          "test": "redshift-1.0",
           "info": "The name of the cluster parameter group family.",
           "required": true
         },
@@ -1728,7 +1699,6 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The identifier of the cluster from which to get the logging status.",
           "required": true
         }
@@ -2284,14 +2254,12 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The identifier of the cluster on which logging is to be started.",
           "required": true
         },
         {
           "name": "destinationRegion",
           "type": "String",
-          "test": "us-east-1",
           "info": "The destination region that you want to copy snapshots to.",
           "required": true
         },
@@ -2343,14 +2311,12 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The unique identifier of the cluster to be modified.",
           "required": true
         },
         {
           "name": "allowVersionUpgrade",
           "type": "String",
-          "test": "true",
           "info": "If true, major version upgrades will be applied automatically to the cluster during the maintenance window. Default: false",
           "required": false
         },
@@ -2375,7 +2341,6 @@
         {
           "name": "clusterType",
           "type": "String",
-          "test": "single-node",
           "info": "The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node",
           "required": false
         },
@@ -2430,7 +2395,6 @@
         {
           "name": "numberOfNodes",
           "type": "String",
-          "test": "5",
           "info": "The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default 1",
           "required": false
         },
@@ -2443,7 +2407,6 @@
         {
           "name": "publiclyAccessible",
           "type": "String",
-          "test": "false",
           "info": "If true, the cluster can be accessed from a public network.",
           "required": false
         },
@@ -2585,14 +2548,12 @@
         {
           "name": "clusterSubnetGroupName",
           "type": "String",
-          "test": "subnetgroup",
           "info": "The name of the subnet group to be modified.",
           "required": true
         },
         {
           "name": "subnetIds",
           "type": "JSON",
-          "test": "[\"subnet-162ab84e\"]",
           "info": "Array of strings. An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. See README for more details.",
           "required": true
         },
@@ -2638,7 +2599,6 @@
         {
           "name": "subscriptionName",
           "type": "String",
-          "test": "subscriptionName",
           "info": "The name of the modified Amazon Redshift event notification subscription.",
           "required": true
         },
@@ -2714,14 +2674,12 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The unique identifier of the cluster for which you want to change the retention period for automated snapshots that are copied to a destination region.",
           "required": true
         },
         {
           "name": "retentionPeriod",
           "type": "String",
-          "test": "2",
           "info": "The number of days to retain automated snapshots in the destination region after they are copied from the source region. Must be at least 1 and no more than 35.",
           "required": true
         }
@@ -2806,7 +2764,6 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The cluster identifier.",
           "required": true
         }
@@ -3290,14 +3247,12 @@
         {
           "name": "resourceName",
           "type": "String",
-          "test": "arn:aws:redshift:eu-west-1:828310069595:cluster:testcluster",
           "info": "The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.",
           "required": true
         },
         {
           "name": "tagKeys",
           "type": "JSON",
-          "test": "[\"tag1\"]",
           "info": "Array of strings. The tag key that you want to delete. See README for more details.",
           "required": true
         }
@@ -3376,7 +3331,6 @@
         {
           "name": "hsmConfigurationIdentifier",
           "type": "String",
-          "test": "hsmconfig",
           "info": "The identifier of the Amazon Redshift HSM configuration to be deleted.",
           "required": true
         }
@@ -3416,7 +3370,6 @@
         {
           "name": "hsmClientCertificateIdentifier",
           "type": "String",
-          "test": "mycert",
           "info": "The identifier of the HSM client certificate to be deleted.",
           "required": true
         }
@@ -3456,7 +3409,6 @@
         {
           "name": "subscriptionName",
           "type": "String",
-          "test": "subscriptionName",
           "info": "The name of the Amazon Redshift event notification subscription to be deleted.",
           "required": true
         }
@@ -3496,7 +3448,6 @@
         {
           "name": "clusterSubnetGroupName",
           "type": "String",
-          "test": "subnetgroup",
           "info": "The name of the cluster subnet group name to be deleted.",
           "required": true
         }
@@ -3536,7 +3487,6 @@
         {
           "name": "snapshotIdentifier",
           "type": "String",
-          "test": "snapshot1",
           "info": "The unique identifier of the manual snapshot to be deleted.",
           "required": true
         },
@@ -3621,7 +3571,6 @@
         {
           "name": "parameterGroupName",
           "type": "String",
-          "test": "groupName",
           "info": "The name of the parameter group to be deleted.",
           "required": true
         }
@@ -3661,7 +3610,6 @@
         {
           "name": "clusterIdentifier",
           "type": "String",
-          "test": "testcluster",
           "info": "The identifier of the cluster to be deleted.",
           "required": true
         },
@@ -3674,7 +3622,6 @@
         {
           "name": "skipFinalClusterSnapshot",
           "type": "String",
-          "test": "true",
           "info": "Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true, a final cluster snapshot is not created. If false, a final cluster snapshot is created before the cluster is deleted. Default: false",
           "required": false
         }
