@@ -19,64 +19,6 @@
   },
   "blocks": [
     {
-      "name": "authorizeClusterSecurityGroupIngress",
-      "description": "Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group.",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "credentials",
-          "info": "API key obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "apiSecret",
-          "type": "credentials",
-          "info": "API secret obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "region",
-          "type": "String",
-          "info": "Region.",
-          "required": true
-        },
-        {
-          "name": "clusterSecurityGroupName",
-          "type": "String",
-          "info": "The name of the security group to which the ingress rule is added.",
-          "required": true
-        },
-        {
-          "name": "CIDRIP",
-          "type": "String",
-          "info": "The IP range to be added the Amazon Redshift security group.",
-          "required": false
-        },
-        {
-          "name": "EC2SecurityGroupName",
-          "type": "String",
-          "info": "The EC2 security group to be added the Amazon Redshift security group.",
-          "required": false
-        },
-        {
-          "name": "EC2SecurityGroupOwnerId",
-          "type": "String",
-          "info": "The AWS account number of the owner of the security group specified by the EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable value.",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "authorizeSnapshotAccess",
       "description": "Authorizes the specified AWS customer account to restore the specified snapshot.",
       "args": [
@@ -414,58 +356,6 @@
           "name": "parameterGroupName",
           "type": "String",
           "info": "The name of the cluster parameter group.",
-          "required": true
-        },
-        {
-          "name": "tags",
-          "type": "JSON",
-          "info": "A list of tag instances. See README for more details.",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "createClusterSecurityGroup",
-      "description": "Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "credentials",
-          "info": "API key obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "apiSecret",
-          "type": "credentials",
-          "info": "API secret obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "region",
-          "type": "String",
-          "info": "Region.",
-          "required": true
-        },
-        {
-          "name": "description",
-          "type": "String",
-          "info": "A description of the parameter group.",
-          "required": true
-        },
-        {
-          "name": "clusterSecurityGroupName",
-          "type": "String",
-          "info": "The name for the security group. Amazon Redshift stores the value as a lowercase string.",
           "required": true
         },
         {
@@ -3125,64 +3015,6 @@
       ]
     },
     {
-      "name": "revokeClusterSecurityGroupIngress",
-      "description": "Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group.",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "credentials",
-          "info": "API key obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "apiSecret",
-          "type": "credentials",
-          "info": "API secret obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "region",
-          "type": "String",
-          "info": "Region.",
-          "required": true
-        },
-        {
-          "name": "clusterSecurityGroupName",
-          "type": "String",
-          "info": "The identifier of the Amazon Redshift cluster to restore the table to.",
-          "required": true
-        },
-        {
-          "name": "CIDRIP",
-          "type": "String",
-          "info": "The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If CIDRIP is specified, EC2SecurityGroupName and EC2SecurityGroupOwnerId cannot be provided.",
-          "required": false
-        },
-        {
-          "name": "EC2SecurityGroupName",
-          "type": "String",
-          "info": "The name of the EC2 Security Group whose access is to be revoked. If EC2SecurityGroupName is specified, EC2SecurityGroupOwnerId must also be provided and CIDRIP cannot be provided.",
-          "required": false
-        },
-        {
-          "name": "EC2SecurityGroupOwnerId",
-          "type": "String",
-          "info": "The AWS account number of the owner of the security group specified in the EC2SecurityGroupName parameter. The AWS access key ID is not an acceptable value. If EC2SecurityGroupOwnerId is specified, EC2SecurityGroupName must also be provided. and CIDRIP cannot be provided. Example: 111122223333",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "revokeSnapshotAccess",
       "description": "Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.",
       "args": [
@@ -3553,46 +3385,6 @@
           "type": "String",
           "info": "The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.",
           "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "deleteClusterSecurityGroup",
-      "description": "Deletes an Amazon Redshift security group.",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "credentials",
-          "info": "API key obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "apiSecret",
-          "type": "credentials",
-          "info": "API secret obtained from Amazon.",
-          "required": true
-        },
-        {
-          "name": "region",
-          "type": "String",
-          "info": "Region.",
-          "required": true
-        },
-        {
-          "name": "clusterSecurityGroupName",
-          "type": "String",
-          "info": "The name of the cluster security group to be deleted.",
-          "required": true
         }
       ],
       "callbacks": [

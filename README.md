@@ -10,19 +10,6 @@ Amazon Redshift manages all the work of setting up, operating, and scaling a dat
 3. Create new user and assign to existing group
 4. After creating user you will see credentials
  
-## AmazonRedshift.authorizeClusterSecurityGroupIngress
-Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether the application accessing your cluster is running on the Internet or an Amazon EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group.
-
-| Field                   | Type       | Description
-|-------------------------|------------|----------
-| apiKey                  | credentials| API key obtained from Amazon.
-| apiSecret               | credentials| API secret obtained from Amazon.
-| region                  | String     | Region.
-| clusterSecurityGroupName| String     | The name of the security group to which the ingress rule is added.
-| CIDRIP                  | String     | The IP range to be added the Amazon Redshift security group.
-| EC2SecurityGroupName    | String     | The EC2 security group to be added the Amazon Redshift security group.
-| EC2SecurityGroupOwnerId | String     | The AWS account number of the owner of the security group specified by the EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable value.
-
 ## AmazonRedshift.authorizeSnapshotAccess
 Authorizes the specified AWS customer account to restore the specified snapshot.
 
@@ -117,28 +104,6 @@ Creates an Amazon Redshift parameter group.
 | parameterGroupFamily| String     | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 | parameterGroupName  | String     | The name of the cluster parameter group.
 | tags                | JSON       | A list of tag instances. See README for more details.
-
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
-## AmazonRedshift.createClusterSecurityGroup
-Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
-
-| Field                   | Type       | Description
-|-------------------------|------------|----------
-| apiKey                  | credentials| API key obtained from Amazon.
-| apiSecret               | credentials| API secret obtained from Amazon.
-| region                  | String     | Region.
-| description             | String     | A description of the parameter group.
-| clusterSecurityGroupName| String     | The name for the security group. Amazon Redshift stores the value as a lowercase string.
-| tags                    | JSON       | A list of tag instances. See README for more details.
 
 #### tags format
 ```json
@@ -959,19 +924,6 @@ Creates a new table from a table in an Amazon Redshift cluster snapshot. You mus
 | targetDatabaseName| String     | The name of the database to restore the table to.
 | targetSchemaName  | String     | The name of the schema to restore the table to.
 
-## AmazonRedshift.revokeClusterSecurityGroupIngress
-Revokes an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group.
-
-| Field                   | Type       | Description
-|-------------------------|------------|----------
-| apiKey                  | credentials| API key obtained from Amazon.
-| apiSecret               | credentials| API secret obtained from Amazon.
-| region                  | String     | Region.
-| clusterSecurityGroupName| String     | The identifier of the Amazon Redshift cluster to restore the table to.
-| CIDRIP                  | String     | The IP range for which to revoke access. This range must be a valid Classless Inter-Domain Routing (CIDR) block of IP addresses. If CIDRIP is specified, EC2SecurityGroupName and EC2SecurityGroupOwnerId cannot be provided.
-| EC2SecurityGroupName    | String     | The name of the EC2 Security Group whose access is to be revoked. If EC2SecurityGroupName is specified, EC2SecurityGroupOwnerId must also be provided and CIDRIP cannot be provided.
-| EC2SecurityGroupOwnerId | String     | The AWS account number of the owner of the security group specified in the EC2SecurityGroupName parameter. The AWS access key ID is not an acceptable value. If EC2SecurityGroupOwnerId is specified, EC2SecurityGroupName must also be provided. and CIDRIP cannot be provided. Example: 111122223333
-
 ## AmazonRedshift.revokeSnapshotAccess
 Removes the ability of the specified AWS customer account to restore the specified snapshot. If the account is currently restoring the snapshot, the restore will run to completion.
 
@@ -1069,16 +1021,6 @@ Deletes the specified cluster subnet group.
 | region                   | String     | Region.
 | snapshotIdentifier       | String     | The unique identifier of the manual snapshot to be deleted.
 | snapshotClusterIdentifier| String     | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-
-## AmazonRedshift.deleteClusterSecurityGroup
-Deletes an Amazon Redshift security group.
-
-| Field                   | Type       | Description
-|-------------------------|------------|----------
-| apiKey                  | credentials| API key obtained from Amazon.
-| apiSecret               | credentials| API secret obtained from Amazon.
-| region                  | String     | Region.
-| clusterSecurityGroupName| String     | The name of the cluster security group to be deleted.
 
 ## AmazonRedshift.deleteClusterParameterGroup
 Deletes a specified Amazon Redshift parameter group.
