@@ -349,29 +349,6 @@ Returns properties of provisioned clusters including general cluster properties,
 ["value1", "value2"]
 ```
 
-## AmazonRedshift.describeClusterSecurityGroups
-Returns information about Amazon Redshift security groups.
-
-| Field                   | Type       | Description
-|-------------------------|------------|----------
-| apiKey                  | credentials| API key obtained from Amazon.
-| apiSecret               | credentials| API secret obtained from Amazon.
-| region                  | String     | Region.
-| ClusterSecurityGroupName| String     | The name of a cluster security group for which you are requesting details. You can specify either the Marker parameter or a ClusterSecurityGroupName parameter, but not both.
-| marker                  | String     | An optional parameter that specifies the starting point to return a set of response records.
-| maxRecords              | String     | The maximum number of response records to return in each call. Default 100.
-| tagKeys                 | JSON       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
-| tagValues               | JSON       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
-
 ## AmazonRedshift.describeClusterSnapshots
 Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
 
