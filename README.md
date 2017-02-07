@@ -1,3 +1,5 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/AmazonRedshift/functions?utm_source=RapidAPIGitHub_AmazonRedShiftFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # AmazonRedshift Package
 Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine.
 * Domain: amazon.com
