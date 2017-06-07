@@ -23,7 +23,8 @@ $app->post('/api/AmazonRedshift/describeClusterSnapshots', function ($request, $
         $body['ClusterIdentifier'] = $post_data['args']['clusterIdentifier'];
     }
     if(!empty($post_data['args']['endTime'])) {
-        $body['EndTime'] = $post_data['args']['endTime'];
+        $dateTime = new DateTime($post_data['args']['endTime']);
+        $body['EndTime'] = $dateTime->format('Y-m-d\TH:i:s\Z');
     }
     if(!empty($post_data['args']['marker'])) {
         $body['Marker'] = $post_data['args']['marker'];
@@ -41,7 +42,8 @@ $app->post('/api/AmazonRedshift/describeClusterSnapshots', function ($request, $
         $body['SnapshotType'] = $post_data['args']['snapshotType'];
     }
     if(!empty($post_data['args']['startTime'])) {
-        $body['StartTime'] = $post_data['args']['sartTime'];
+        $dateTime = new DateTime($post_data['args']['startTime']);
+        $body['StartTime'] = $dateTime->format('Y-m-d\TH:i:s\Z');
     }
     if(!empty($post_data['args']['tagKeys'])) {
         $body['TagKeys'] = $post_data['args']['tagKeys'];

@@ -23,7 +23,8 @@ $app->post('/api/AmazonRedshift/describeEvents', function ($request, $response, 
         $body['Duration'] = $post_data['args']['duration'];
     }
     if(!empty($post_data['args']['endTime'])) {
-        $body['EndTime'] = $post_data['args']['endTime'];
+        $dateTime = new DateTime($post_data['args']['endTime']);
+        $body['EndTime'] = $dateTime->format('Y-m-d\TH:i:s\Z');
     }
     if(!empty($post_data['args']['marker'])) {
         $body['Marker'] = $post_data['args']['marker'];
@@ -38,7 +39,8 @@ $app->post('/api/AmazonRedshift/describeEvents', function ($request, $response, 
         $body['SourceType'] = $post_data['args']['sourceType'];
     }
     if(!empty($post_data['args']['startTime'])) {
-        $body['StartTime'] = $post_data['args']['startTime'];
+        $dateTime = new DateTime($post_data['args']['startTime']);
+        $body['StartTime'] = $dateTime->format('Y-m-d\TH:i:s\Z');
     }
 
     try {

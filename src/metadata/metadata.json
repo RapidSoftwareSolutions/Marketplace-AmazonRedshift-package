@@ -164,7 +164,15 @@
         },
         {
           "name": "nodeType",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ds1.xlarge",
+            "ds1.8xlarge",
+            "ds2.xlarge",
+            "ds2.8xlarge",
+            "dc1.large",
+            "dc1.8xlarge"
+          ],
           "info": "The node type to be provisioned for the cluster. For information about node types, go to Working with Clusters in the Amazon Redshift Cluster Management Guide. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.",
           "required": true
         },
@@ -212,7 +220,11 @@
         },
         {
           "name": "clusterType",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "multi-node",
+            "single-node"
+          ],
           "info": "The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node",
           "required": false
         },
@@ -260,9 +272,14 @@
         },
         {
           "name": "iamRoles",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "iamRoles",
+            "type": "String",
+            "info": "Single iamRole"
+          }
         },
         {
           "name": "kmsKeyId",
@@ -296,15 +313,25 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         },
         {
           "name": "vpcSecurityGroupIds",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "vpcSecurityGroupId",
+            "type": "String",
+            "info": "Single vpcSecurityGroupId"
+          }
         }
       ],
       "callbacks": [
@@ -360,9 +387,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -412,9 +444,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -464,15 +501,25 @@
         },
         {
           "name": "subnetIds",
-          "type": "JSON",
+          "type": "List",
           "info": "An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "subnetId",
+            "type": "String",
+            "info": "Single subnetId"
+          }
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -528,9 +575,14 @@
         },
         {
           "name": "eventCategories",
-          "type": "JSON",
+          "type": "List",
           "info": "Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "eventCategory",
+            "type": "String",
+            "info": "Single eventCategory"
+          }
         },
         {
           "name": "severity",
@@ -540,9 +592,14 @@
         },
         {
           "name": "sourceIds",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "sourceId",
+            "type": "String",
+            "info": "Single sourceId"
+          }
         },
         {
           "name": "sourceType",
@@ -552,9 +609,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -598,9 +660,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -674,9 +741,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -726,9 +798,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of tag instances. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -772,9 +849,14 @@
         },
         {
           "name": "tags",
-          "type": "JSON",
+          "type": "List",
           "info": "One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter Key and the corresponding value is passed in with the parameter Value.. See README for more details.",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         }
       ],
       "callbacks": [
@@ -830,15 +912,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -894,7 +986,8 @@
         },
         {
           "name": "source",
-          "type": "String",
+          "type": "Select",
+          "options": ["user", "engine-default"],
           "info": "The parameter types to return. Specify user to show parameters that are different form the default. Similarly, specify engine-default to show parameters that are the same as the default parameter group. Default: All parameter types returned. Valid Values: user; engine-default",
           "required": false
         }
@@ -952,15 +1045,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -1004,7 +1107,7 @@
         },
         {
           "name": "endTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z",
           "required": false
         },
@@ -1040,21 +1143,31 @@
         },
         {
           "name": "startTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z",
           "required": false
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -1110,15 +1223,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -1266,7 +1389,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["cluster", "cluster-snapshot", "cluster-parameter-group", "cluster-security-group"],
           "info": "The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.",
           "required": false
         }
@@ -1312,7 +1436,7 @@
         },
         {
           "name": "endTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "The end of the time interval for which to retrieve events, specified in ISO 8601 format. Example: 2009-07-08T18:00Z",
           "required": false
         },
@@ -1342,7 +1466,7 @@
         },
         {
           "name": "startTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "The beginning of the time interval to retrieve events for, specified in ISO 8601 format. Example: 2009-07-08T18:00Z",
           "required": false
         }
@@ -1504,15 +1628,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching HSM configurations that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -1810,15 +1944,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -1920,7 +2064,8 @@
         },
         {
           "name": "resourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["Cluster", "CIDR/IP", "EC2 security group", "Snapshot", "Cluster security group", "Subnet group", "HSM connection", "HSM certificate", "Parameter group", "Snapshot copy grant"],
           "info": "The type of resource with which you want to view tags. Valid resource types are: Cluster, CIDR/IP, EC2 security group, Snapshot, Cluster security group, Subnet group, HSM connection, HSM certificate, Parameter group, Snapshot copy grant",
           "required": false
         },
@@ -1938,15 +2083,25 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         },
         {
           "name": "tagValues",
-          "type": "JSON",
+          "type": "List",
           "info": "A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tagValue",
+            "type": "String",
+            "info": "Single tagValue"
+          }
         }
       ],
       "callbacks": [
@@ -2198,13 +2353,19 @@
         },
         {
           "name": "clusterSecurityGroups",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of security groups to be associated with this cluster.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "clusterSecurityGroup",
+            "type": "String",
+            "info": "Single clusterSecurityGroup"
+          }
         },
         {
           "name": "clusterType",
-          "type": "String",
+          "type": "Select",
+          "options": ["multi-node", "single-node"],
           "info": "The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node",
           "required": false
         },
@@ -2252,7 +2413,15 @@
         },
         {
           "name": "nodeType",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ds1.xlarge",
+            "ds1.8xlarge",
+            "ds2.xlarge",
+            "ds2.8xlarge",
+            "dc1.large",
+            "dc1.8xlarge"
+          ],
           "info": "The new node type of the cluster. If you specify a new node type, you must also specify the number of nodes parameter. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.",
           "required": false
         },
@@ -2276,9 +2445,14 @@
         },
         {
           "name": "vpcSecurityGroupIds",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "vpcSecurityGroupId",
+            "type": "String",
+            "info": "Single vpcSecurityGroupId"
+          }
         }
       ],
       "callbacks": [
@@ -2322,15 +2496,25 @@
         },
         {
           "name": "addIamRoles",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "IamRole",
+            "type": "String",
+            "info": "Single IamRole"
+          }
         },
         {
           "name": "removeIamRoles",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "IamRole",
+            "type": "String",
+            "info": "Single IamRole"
+          }
         }
       ],
       "callbacks": [
@@ -2374,9 +2558,14 @@
         },
         {
           "name": "parameters",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of objects. An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. See README for more details.",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "parameter",
+            "type": "JSON",
+            "info": "Single parameter"
+          }
         }
       ],
       "callbacks": [
@@ -2420,9 +2609,14 @@
         },
         {
           "name": "subnetIds",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. See README for more details.",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "subnetId",
+            "type": "JSON",
+            "info": "Single subnetId"
+          }
         },
         {
           "name": "description",
@@ -2478,9 +2672,14 @@
         },
         {
           "name": "eventCategories",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "eventCategory",
+            "type": "JSON",
+            "info": "Single eventCategory"
+          }
         },
         {
           "name": "severity",
@@ -2496,13 +2695,19 @@
         },
         {
           "name": "sourceIds",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. Example: my-cluster-1, my-cluster-2, my-snapshot-20131010. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "sourceId",
+            "type": "JSON",
+            "info": "Single sourceId"
+          }
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["cluster", "cluster-parameter-group", "cluster-security-group", "cluster-snapshot"],
           "info": "The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, and cluster-snapshot.",
           "required": false
         }
@@ -2680,9 +2885,14 @@
         },
         {
           "name": "parameters",
-          "type": "JSON",
+          "type": "List",
           "info": "An array of names of parameters to be reset. If ResetAllParameters option is not used, then at least one parameter name must be supplied. Constraints: A maximum of 20 parameters can be reset in a single request.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "parameter",
+            "type": "JSON",
+            "info": "Single parameter"
+          }
         },
         {
           "name": "resetAllParameters",
@@ -2768,9 +2978,14 @@
         },
         {
           "name": "clusterSecurityGroups",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "clusterSecurityGroup",
+            "type": "JSON",
+            "info": "Single clusterSecurityGroup"
+          }
         },
         {
           "name": "clusterSubnetGroupName",
@@ -2804,9 +3019,14 @@
         },
         {
           "name": "iamRoles",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "iamRole",
+            "type": "String",
+            "info": "Single iamRole"
+          }
         },
         {
           "name": "kmsKeyId",
@@ -2852,9 +3072,14 @@
         },
         {
           "name": "vpcSecurityGroupIds",
-          "type": "JSON",
+          "type": "List",
           "info": "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "vpcSecurityGroupId",
+            "type": "String",
+            "info": "Single vpcSecurityGroupId"
+          }
         }
       ],
       "callbacks": [
@@ -3072,9 +3297,14 @@
         },
         {
           "name": "tagKeys",
-          "type": "JSON",
+          "type": "List",
           "info": "Array of strings. The tag key that you want to delete. See README for more details.",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "tagKey",
+            "type": "String",
+            "info": "Single tagKey"
+          }
         }
       ],
       "callbacks": [

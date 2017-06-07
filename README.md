@@ -1,8 +1,8 @@
-[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/AmazonRedshift/functions?utm_source=RapidAPIGitHub_AmazonRedShiftFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/AmazonRedshift/functions?utm_source=RapidAPIGitHub_AmazonRedshiftFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 
 # AmazonRedshift Package
 Amazon Redshift manages all the work of setting up, operating, and scaling a data warehouse: provisioning capacity, monitoring and backing up the cluster, and applying patches and upgrades to the Amazon Redshift engine.
-* Domain: amazon.com
+* Domain: [AmazonRedshift](http://amazon.com)
 * Credentials: apiKey, apiSecret
 
 ## How to get credentials: 
@@ -11,7 +11,18 @@ Amazon Redshift manages all the work of setting up, operating, and scaling a dat
 2. Create new group in Groups section at the left side with necessary polices
 3. Create new user and assign to existing group
 4. After creating user you will see credentials
+
+
+## Custom datatypes: 
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]``` 
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
+
 ## AmazonRedshift.authorizeSnapshotAccess
 Authorizes the specified AWS customer account to restore the specified snapshot.
 
@@ -47,7 +58,7 @@ Creates a new cluster.
 | clusterIdentifier               | String     | A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console.
 | masterUsername                  | String     | The user name associated with the master user account for the cluster that is being created.
 | masterUserPassword              | String     | The password associated with the master user account for the cluster that is being created.
-| nodeType                        | String     | The node type to be provisioned for the cluster. For information about node types, go to Working with Clusters in the Amazon Redshift Cluster Management Guide. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.
+| nodeType                        | Select     | The node type to be provisioned for the cluster. For information about node types, go to Working with Clusters in the Amazon Redshift Cluster Management Guide. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.
 | additionalInfo                  | String     | Reserved
 | allowVersionUpgrade             | String     | If true, major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default: true
 | automatedSnapshotRetentionPeriod| String     | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot. Default: 1
@@ -55,7 +66,7 @@ Creates a new cluster.
 | clusterParameterGroupName       | String     | The name of the parameter group to be associated with this cluster.
 | clusterSecurityGroups           | JSON       | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift.
 | clusterSubnetGroupName          | String     | The name of a cluster subnet group to be associated with this cluster.
-| clusterType                     | String     | The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node
+| clusterType                     | Select     | The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node
 | clusterVersion                  | String     | The version of the Amazon Redshift engine software that you want to deploy on the cluster. Only version 1.0 is currently available.
 | dBName                          | String     | The name of the first database to be created when the cluster is created.
 | elasticIp                       | String     | The Elastic IP (EIP) address for the cluster.
@@ -63,14 +74,14 @@ Creates a new cluster.
 | enhancedVpcRouting              | String     | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide. If this option is true, enhanced VPC routing is enabled. Default: false
 | hsmClientCertificateIdentifier  | String     | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 | hsmConfigurationIdentifier      | String     | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-| iamRoles                        | JSON       | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+| iamRoles                        | List       | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
 | kmsKeyId                        | String     | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 | numberOfNodes                   | String     | The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default 1
 | port                            | String     | The port number on which the cluster accepts incoming connections.
 | preferredMaintenanceWindow      | String     | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi. Valid Days: Mon; Tue; Wed; Thu; Fri; Sat; Sun
 | publiclyAccessible              | String     | If true, the cluster can be accessed from a public network.
-| tags                            | JSON       | A list of tag instances. See README for more details.
-| vpcSecurityGroupIds             | JSON       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
+| tags                            | List       | A list of tag instances. See README for more details.
+| vpcSecurityGroupIds             | List       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
 
 #### clusterSecurityGroups format
 ```json
@@ -94,6 +105,7 @@ Creates a new cluster.
 ```json
 ["string", "string", ...]
 ```
+
 ## AmazonRedshift.createClusterParameterGroup
 Creates an Amazon Redshift parameter group.
 
@@ -105,7 +117,7 @@ Creates an Amazon Redshift parameter group.
 | description         | String     | A description of the parameter group.
 | parameterGroupFamily| String     | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 | parameterGroupName  | String     | The name of the cluster parameter group.
-| tags                | JSON       | A list of tag instances. See README for more details.
+| tags                | List       | A list of tag instances. See README for more details.
 
 #### tags format
 ```json
@@ -117,6 +129,7 @@ Creates an Amazon Redshift parameter group.
   ...
 ]
 ```
+
 ## AmazonRedshift.createClusterSnapshot
 Creates a manual snapshot of the specified cluster. The cluster must be in the available state.
 
@@ -127,18 +140,8 @@ Creates a manual snapshot of the specified cluster. The cluster must be in the a
 | region            | String     | Region.
 | clusterIdentifier | String     | The cluster identifier for which you want a snapshot.
 | snapshotIdentifier| String     | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.
-| tags              | JSON       | A list of tag instances. See README for more details.
+| tags              | List       | A list of tag instances. See README for more details.
 
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
 ## AmazonRedshift.createClusterSubnetGroup
 Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
 
@@ -149,8 +152,8 @@ Creates a new Amazon Redshift subnet group. You must provide a list of one or mo
 | region                | String     | Region.
 | clusterSubnetGroupName| String     | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
 | description           | String     | A description for the subnet group.
-| subnetIds             | JSON       | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
-| tags                  | JSON       | A list of tag instances. See README for more details.
+| subnetIds             | List       | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
+| tags                  | List       | A list of tag instances. See README for more details.
 
 #### subnetIds format
 ```json
@@ -166,6 +169,7 @@ Creates a new Amazon Redshift subnet group. You must provide a list of one or mo
   ...
 ]
 ```
+
 ## AmazonRedshift.createEventSubscription
 Creates an Amazon Redshift event notification subscription
 
@@ -177,11 +181,11 @@ Creates an Amazon Redshift event notification subscription
 | snsTopicArn     | String     | The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
 | subscriptionName| String     | The name of the event subscription to be created.
 | enabled         | String     | A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
-| eventCategories | JSON       | Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security
+| eventCategories | List       | Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security
 | severity        | String     | Specifies the Amazon Redshift event severity to be published by the event notification subscription. Values: ERROR, INFO
-| sourceIds       | JSON       | A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.
+| sourceIds       | List       | A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.
 | sourceType      | String     | The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, and cluster-snapshot.
-| tags            | JSON       | A list of tag instances. See README for more details.
+| tags            | List       | A list of tag instances. See README for more details.
 
 #### eventCategories format
 ```json
@@ -211,18 +215,8 @@ Creates an HSM client certificate that an Amazon Redshift cluster will use to co
 | apiSecret                     | credentials| API secret obtained from Amazon.
 | region                        | String     | Region.
 | hsmClientCertificateIdentifier| String     | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
-| tags                          | JSON       | A list of tag instances. See README for more details.
+| tags                          | List       | A list of tag instances. See README for more details.
 
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
 ## AmazonRedshift.createHsmConfiguration
 Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.
 
@@ -237,18 +231,8 @@ Creates an HSM configuration that contains the information required by an Amazon
 | hsmPartitionName          | String     | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 | hsmPartitionPassword      | String     | The password required to access the HSM partition.
 | hsmServerPublicCertificate| String     | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem
-| tags                      | JSON       | A list of tag instances. See README for more details.
+| tags                      | List       | A list of tag instances. See README for more details.
 
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
 ## AmazonRedshift.createSnapshotCopyGrant
 Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.
 
@@ -259,18 +243,8 @@ Creates a snapshot copy grant that permits Amazon Redshift to use a customer mas
 | region               | String     | Region.
 | snapshotCopyGrantName| String     | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
 | kmsKeyId             | String     | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
-| tags                 | JSON       | A list of tag instances. See README for more details.
+| tags                 | List       | A list of tag instances. See README for more details.
 
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
 ## AmazonRedshift.createTags
 Adds one or more tags to a specified resource.
 
@@ -280,18 +254,8 @@ Adds one or more tags to a specified resource.
 | apiSecret   | credentials| API secret obtained from Amazon.
 | region      | String     | Region.
 | resourceName| String     | The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
-| tags        | JSON       | One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter Key and the corresponding value is passed in with the parameter Value.. See README for more details.
+| tags        | List       | One or more name/value pairs to add as tags to the specified resource. Each tag name is passed in with the parameter Key and the corresponding value is passed in with the parameter Value.. See README for more details.
 
-#### tags format
-```json
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
-```
 ## AmazonRedshift.describeClusterParameterGroups
 Returns a list of Amazon Redshift parameter groups, including parameter groups you created and the default parameter group.
 
@@ -303,8 +267,8 @@ Returns a list of Amazon Redshift parameter groups, including parameter groups y
 | marker            | String     | An optional parameter that specifies the starting point to return a set of response records.
 | maxRecords        | String     | The maximum number of response records to return in each call. Default 100.
 | parameterGroupName| String     | The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned.
-| tagKeys           | JSON       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
-| tagValues         | JSON       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
+| tagKeys           | List       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
+| tagValues         | List       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
 
 #### tagKeys format
 ```json
@@ -326,7 +290,7 @@ Returns a detailed list of parameters contained within the specified Amazon Reds
 | parameterGroupName| String     | The name of a cluster parameter group for which to return details.
 | marker            | String     | An optional parameter that specifies the starting point to return a set of response records.
 | maxRecords        | String     | The maximum number of response records to return in each call. Default 100.
-| source            | String     | The parameter types to return. Specify user to show parameters that are different form the default. Similarly, specify engine-default to show parameters that are the same as the default parameter group. Default: All parameter types returned. Valid Values: user; engine-default
+| source            | Select     | The parameter types to return. Specify user to show parameters that are different form the default. Similarly, specify engine-default to show parameters that are the same as the default parameter group. Default: All parameter types returned. Valid Values: user; engine-default
 
 ## AmazonRedshift.describeClusters
 Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties.
@@ -339,17 +303,8 @@ Returns properties of provisioned clusters including general cluster properties,
 | clusterIdentifier| String     | The unique identifier of a cluster whose properties you are requesting. 
 | marker           | String     | An optional parameter that specifies the starting point to return a set of response records.
 | maxRecords       | String     | The maximum number of response records to return in each call. Default 100.
-| tagKeys          | JSON       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
-| tagValues        | JSON       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| tagKeys          | List       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
+| tagValues        | List       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
 
 ## AmazonRedshift.describeClusterSnapshots
 Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
@@ -360,24 +315,15 @@ Returns one or more snapshot objects, which contain metadata about your cluster 
 | apiSecret         | credentials| API secret obtained from Amazon.
 | region            | String     | Region.
 | clusterIdentifier | String     | The identifier of the cluster for which information about snapshots is requested.
-| endTime           | String     | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z
+| endTime           | DatePicker | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z
 | marker            | String     | An optional parameter that specifies the starting point to return a set of response records.
 | maxRecords        | String     | The maximum number of response records to return in each call. Default 100.
 | ownerAccount      | String     | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
 | snapshotIdentifier| String     | The snapshot identifier of the snapshot about which to return information.
 | snapshotType      | String     | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned. Valid Values: automated; manual
-| startTime         | String     | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z
-| tagKeys           | JSON       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
-| tagValues         | JSON       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| startTime         | DatePicker | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. Example: 2012-07-16T18:00:00Z
+| tagKeys           | List       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
+| tagValues         | List       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
 
 ## AmazonRedshift.describeClusterSubnetGroups
 Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups.
@@ -390,17 +336,8 @@ Returns one or more cluster subnet group objects, which contain metadata about y
 | clusterSubnetGroupName| String     | The name of the cluster subnet group for which information is requested.
 | marker                | String     | An optional parameter that specifies the starting point to return a set of response records.
 | maxRecords            | String     | The maximum number of response records to return in each call. Default 100.
-| tagKeys               | JSON       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
-| tagValues             | JSON       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| tagKeys               | List       | A tag key or keys for which you want to return all matching cluster parameter groups that are associated with the specified key or keys. See README for more details.
+| tagValues             | List       | A tag value or values for which you want to return all matching cluster parameter groups that are associated with the specified tag value or values. See README for more details.
 
 ## AmazonRedshift.describeClusterVersions
 Returns descriptions of the available Amazon Redshift cluster versions.
@@ -435,7 +372,7 @@ Displays a list of event categories for all event source types, or for a specifi
 | apiKey    | credentials| API key obtained from Amazon.
 | apiSecret | credentials| API secret obtained from Amazon.
 | region    | String     | Region.
-| sourceType| String     | The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
+| sourceType| Select     | The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 
 ## AmazonRedshift.describeEvents
 Returns events related to clusters, security groups, snapshots, and parameter groups for the past 14 days.
@@ -446,12 +383,12 @@ Returns events related to clusters, security groups, snapshots, and parameter gr
 | apiSecret       | credentials| API secret obtained from Amazon.
 | region          | String     | Region.
 | duration        | String     | The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned. Default: 60
-| endTime         | String     | The end of the time interval for which to retrieve events, specified in ISO 8601 format. Example: 2009-07-08T18:00Z
+| endTime         | DatePicker | The end of the time interval for which to retrieve events, specified in ISO 8601 format. Example: 2009-07-08T18:00Z
 | marker          | String     | An optional parameter that specifies the starting point to return a set of response records. When the results of a request exceed the value specified in MaxRecords, AWS returns a value in the Marker field of the response.
 | maxRecords      | String     | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. Default: 100
 | sourceIdentifier| String     | The identifier of the event source for which events will be returned. If this parameter is not specified, then all sources are included in the response.
 | sourceType      | String     | The event source to retrieve events for. If no value is specified, all events are returned.
-| startTime       | String     | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. Example: 2009-07-08T18:00Z
+| startTime       | DatePicker | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. Example: 2009-07-08T18:00Z
 
 ## AmazonRedshift.describeEventSubscriptions
 Lists descriptions of all the Amazon Redshift event notifications subscription for a customer account.
@@ -488,17 +425,8 @@ Returns information about the specified Amazon Redshift HSM configuration. If no
 | hsmConfigurationIdentifier| String     | The identifier of a specific Amazon Redshift HSM configuration to be described. If no identifier is specified, information is returned for all HSM configurations owned by your AWS customer account.
 | marker                    | String     | An optional parameter that specifies the starting point to return a set of response records. When the results of a request exceed the value specified in MaxRecords, AWS returns a value in the Marker field of the response.
 | maxRecords                | String     | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. Default: 100
-| tagKeys                   | JSON       | A tag key or keys for which you want to return all matching HSM configurations that are associated with the specified key or keys. See README for more details.
-| tagValues                 | JSON       | A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| tagKeys                   | List       | A tag key or keys for which you want to return all matching HSM configurations that are associated with the specified key or keys. See README for more details.
+| tagValues                 | List       | A tag value or values for which you want to return all matching HSM configurations that are associated with the specified tag value or values. See README for more details.
 
 ## AmazonRedshift.describeLoggingStatus
 Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.
@@ -568,17 +496,8 @@ Returns a list of snapshot copy grants owned by the AWS account in the destinati
 | snapshotCopyGrantName| String     | The name of the snapshot copy grant.
 | marker               | String     | An optional parameter that specifies the starting point to return a set of response records. When the results of a request exceed the value specified in MaxRecords, AWS returns a value in the Marker field of the response.
 | maxRecords           | String     | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. Default: 100
-| tagKeys              | JSON       | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.
-| tagValues            | JSON       | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| tagKeys              | List       | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.
+| tagValues            | List       | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.
 
 ## AmazonRedshift.describeTableRestoreStatus
 Lists the status of one or more table restore requests made using the RestoreTableFromClusterSnapshot API action.
@@ -602,20 +521,11 @@ Returns a list of tags. You can return tags from a specific resource by specifyi
 | apiSecret   | credentials| API secret obtained from Amazon.
 | region      | String     | Region.
 | resourceName| String     | The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
-| resourceType| String     | The type of resource with which you want to view tags. Valid resource types are: Cluster, CIDR/IP, EC2 security group, Snapshot, Cluster security group, Subnet group, HSM connection, HSM certificate, Parameter group, Snapshot copy grant
+| resourceType| Select     | The type of resource with which you want to view tags. Valid resource types are: Cluster, CIDR/IP, EC2 security group, Snapshot, Cluster security group, Subnet group, HSM connection, HSM certificate, Parameter group, Snapshot copy grant
 | marker      | String     | An optional parameter that specifies the starting point to return a set of response records. When the results of a request exceed the value specified in MaxRecords, AWS returns a value in the Marker field of the response.
 | maxRecords  | String     | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve the next set of records by retrying the command with the returned marker value. Default: 100
-| tagKeys     | JSON       | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.
-| tagValues   | JSON       | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.
-
-#### tagKeys format
-```json
-["key1", "key2"]
-```
-#### tagValues format
-```json
-["value1", "value2"]
-```
+| tagKeys     | List       | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. See README for more details.
+| tagValues   | List       | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. See README for more details.
 
 ## AmazonRedshift.disableLogging
 Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
@@ -674,8 +584,8 @@ Modifies the settings for a cluster.
 | allowVersionUpgrade             | String     | If true, major version upgrades will be applied automatically to the cluster during the maintenance window. Default: false
 | automatedSnapshotRetentionPeriod| String     | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot. Default: 1
 | clusterParameterGroupName       | String     | The name of the cluster parameter group to apply to this cluster.
-| clusterSecurityGroups           | JSON       | A list of security groups to be associated with this cluster.
-| clusterType                     | String     | The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node
+| clusterSecurityGroups           | List       | A list of security groups to be associated with this cluster.
+| clusterType                     | Select     | The type of the cluster. Valid Values: multi-node; single-node. Default: multi-node
 | clusterVersion                  | String     | The new version number of the Amazon Redshift engine to upgrade to.
 | elasticIp                       | String     | The Elastic IP (EIP) address for the cluster.
 | enhancedVpcRouting              | String     | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide. If this option is true, enhanced VPC routing is enabled. Default: false
@@ -683,20 +593,11 @@ Modifies the settings for a cluster.
 | hsmConfigurationIdentifier      | String     | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 | masterUserPassword              | String     | The new password for the cluster master user.
 | newClusterIdentifier            | String     | The new identifier for the cluster.
-| nodeType                        | String     | The new node type of the cluster. If you specify a new node type, you must also specify the number of nodes parameter. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.
+| nodeType                        | Select     | The new node type of the cluster. If you specify a new node type, you must also specify the number of nodes parameter. Valid Values: ds1.xlarge; ds1.8xlarge; ds2.xlarge; ds2.8xlarge; dc1.large; dc1.8xlarge.
 | numberOfNodes                   | String     | The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default 1
 | preferredMaintenanceWindow      | String     | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi. Valid Days: Mon; Tue; Wed; Thu; Fri; Sat; Sun
 | publiclyAccessible              | String     | If true, the cluster can be accessed from a public network.
-| vpcSecurityGroupIds             | JSON       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
-
-#### clusterSecurityGroups format
-```json
-["string", "string", ...]
-```
-#### vpcSecurityGroupIds format
-```json
-["string", "string", ...]
-```
+| vpcSecurityGroupIds             | List       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
 
 ## AmazonRedshift.modifyClusterIamRoles
 Modifies the list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
@@ -707,8 +608,8 @@ Modifies the list of AWS Identity and Access Management (IAM) roles that can be 
 | apiSecret        | credentials| API secret obtained from Amazon.
 | region           | String     | Region.
 | clusterIdentifier| String     | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
-| addIamRoles      | JSON       | Array of strings. Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request. See README for more details.
-| removeIamRoles   | JSON       | Array of strings. Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request. See README for more details.
+| addIamRoles      | List       | Array of strings. Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request. See README for more details.
+| removeIamRoles   | List       | Array of strings. Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request. See README for more details.
 
 #### addIamRoles format
 ```json
@@ -718,7 +619,6 @@ Modifies the list of AWS Identity and Access Management (IAM) roles that can be 
 ```json
 ["string", "string", ...]
 ```
-
 ## AmazonRedshift.modifyClusterParameterGroup
 Modifies the parameters of a parameter group.
 
@@ -728,17 +628,8 @@ Modifies the parameters of a parameter group.
 | apiSecret         | credentials| API secret obtained from Amazon.
 | region            | String     | Region.
 | parameterGroupName| String     | The name of the parameter group to be modified.
-| parameters        | JSON       | Array of objects. An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. See README for more details.
+| parameters        | List       | Array of objects. An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request. For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional. See README for more details.
 
-#### parameters format
-```json
-[  
-    {  
-        "statement_timeout":"20000",
-        "enable_user_activity_logging":true
-    }
-]
-```
 ## AmazonRedshift.modifyClusterSubnetGroup
 Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.
 
@@ -748,13 +639,9 @@ Modifies a cluster subnet group to include the specified list of VPC subnets. Th
 | apiSecret             | credentials| API secret obtained from Amazon.
 | region                | String     | Region.
 | clusterSubnetGroupName| String     | The name of the subnet group to be modified.
-| subnetIds             | JSON       | Array of strings. An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. See README for more details.
+| subnetIds             | List       | Array of strings. An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request. See README for more details.
 | description           | String     | A text description of the subnet group to be modified.
 
-#### subnetIds format
-```json
-["subnet-162ab84e"]
-```
 ## AmazonRedshift.modifyEventSubscription
 Modifies an existing Amazon Redshift event notification subscription.
 
@@ -765,11 +652,11 @@ Modifies an existing Amazon Redshift event notification subscription.
 | region          | String     | Region.
 | subscriptionName| String     | The name of the modified Amazon Redshift event notification subscription.
 | enabled         | String     | A Boolean value indicating if the subscription is enabled. true indicates the subscription is enabled
-| eventCategories | JSON       | Array of strings. Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security. See README for more details.
+| eventCategories | List       | Array of strings. Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: Configuration, Management, Monitoring, Security. See README for more details.
 | severity        | String     | Specifies the Amazon Redshift event severity to be published by the event notification subscription. Values: ERROR, INFO
 | snsTopicArn     | String     | The Amazon Resource Name (ARN) of the SNS topic to be used by the event notification subscription.
-| sourceIds       | JSON       | Array of strings. A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. Example: my-cluster-1, my-cluster-2, my-snapshot-20131010. See README for more details.
-| sourceType      | String     | The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, and cluster-snapshot.
+| sourceIds       | List       | Array of strings. A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. Example: my-cluster-1, my-cluster-2, my-snapshot-20131010. See README for more details.
+| sourceType      | Select     | The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, and cluster-snapshot.
 
 #### eventCategories format
 ```json
@@ -821,7 +708,7 @@ Sets one or more parameters of the specified parameter group to their default va
 | apiSecret         | credentials| API secret obtained from Amazon.
 | region            | String     | Region.
 | parameterGroupName| String     | The name of the cluster parameter group to be reset.
-| parameters        | JSON       | An array of names of parameters to be reset. If ResetAllParameters option is not used, then at least one parameter name must be supplied. Constraints: A maximum of 20 parameters can be reset in a single request.
+| parameters        | List       | An array of names of parameters to be reset. If ResetAllParameters option is not used, then at least one parameter name must be supplied. Constraints: A maximum of 20 parameters can be reset in a single request.
 | resetAllParameters| String     | If true, all parameters in the specified parameter group will be reset to their default values. Default: true
 
 #### parameters format
@@ -841,6 +728,7 @@ Sets one or more parameters of the specified parameter group to their default va
   ...
 ]
 ```
+
 ## AmazonRedshift.restoreFromClusterSnapshot
 Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups.
 
@@ -856,13 +744,13 @@ Creates a new cluster from a snapshot. By default, Amazon Redshift creates the r
 | automatedSnapshotRetentionPeriod| String     | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with CreateClusterSnapshot. Default: The value selected for the cluster from which the snapshot was taken.
 | availabilityZone                | String     | The Amazon EC2 Availability Zone in which to restore the cluster. Default: A random, system-chosen Availability Zone. Example: us-east-1a
 | clusterParameterGroupName       | String     | The name of the parameter group to be associated with this cluster.
-| clusterSecurityGroups           | JSON       | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift. See README for more details.
+| clusterSecurityGroups           | List       | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift. See README for more details.
 | clusterSubnetGroupName          | String     | The name of the subnet group where you want to cluster restored.
 | elasticIp                       | String     | The elastic IP (EIP) address for the cluster.
 | enhancedVpcRouting              | String     | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. Default: false
 | hsmClientCertificateIdentifier  | String     | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 | hsmConfigurationIdentifier      | String     | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-| iamRoles                        | JSON       | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. See README for more details.
+| iamRoles                        | List       | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. See README for more details.
 | kmsKeyId                        | String     | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
 | nodeType                        | String     | The node type that the restored cluster will be provisioned with.
 | ownerAccount                    | String     | The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -870,21 +758,7 @@ Creates a new cluster from a snapshot. By default, Amazon Redshift creates the r
 | preferredMaintenanceWindow      | String     | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: ddd:hh24:mi-ddd:hh24:mi. Valid Days: Mon; Tue; Wed; Thu; Fri; Sat; Sun
 | publiclyAccessible              | String     | If true, the cluster can be accessed from a public network.
 | snapshotClusterIdentifier       | String     | The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-| vpcSecurityGroupIds             | JSON       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
-
-#### clusterSecurityGroups format
-```json
-["string", "string", ...]
-```
-#### iamRoles format
-```json
-["string", "string", ...]
-```
-#### vpcSecurityGroupIds format
-```json
-["string", "string", ...]
-```
-
+| vpcSecurityGroupIds             | List       | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. See README for more details.
 
 ## AmazonRedshift.restoreTableFromClusterSnapshot
 Creates a new table from a table in an Amazon Redshift cluster snapshot. You must create the new table within the Amazon Redshift cluster that the snapshot was taken from.
@@ -934,12 +808,8 @@ Deletes a tag or tags from a resource. You must provide the ARN of the resource 
 | apiSecret   | credentials| API secret obtained from Amazon.
 | region      | String     | Region.
 | resourceName| String     | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
-| tagKeys     | JSON       | Array of strings. The tag key that you want to delete. See README for more details.
+| tagKeys     | List       | Array of strings. The tag key that you want to delete. See README for more details.
 
-#### tagKeys format
-```json
-["tag1"]
-```
 ## AmazonRedshift.deleteSnapshotCopyGrant
 Deletes the specified snapshot copy grant.
 
